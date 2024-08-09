@@ -7,7 +7,7 @@ namespace PriceQuotationApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(new Calculation());
         }
 
         [HttpPost]
@@ -15,6 +15,7 @@ namespace PriceQuotationApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                c.Calculate();
                 return View(c);
             }
             return View(c);

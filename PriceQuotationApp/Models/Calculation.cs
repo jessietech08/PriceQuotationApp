@@ -14,10 +14,20 @@ namespace PriceQuotationApp.Models
         [Range(0, 100, ErrorMessage = "Discount percent must be between 0 and 100")]
         public decimal DiscountPercent { get; set; }
 
-        // calculating discount amount
-        public decimal DiscountAmount => Subtotal * (DiscountPercent / 100);
+        // stores discount amount
+        public decimal DiscountAmount { get; set; }
 
-        // calculating total
-        public decimal Total => Subtotal - DiscountPercent;
+        // stores total
+        public decimal Total {  get; set; }
+
+        
+        public void Calculate()
+        {
+            // calculating discount amount
+            DiscountAmount = Subtotal * (DiscountPercent / 100);
+
+            // calculating total
+            Total = Subtotal - DiscountAmount;
+        }
     }
 }
