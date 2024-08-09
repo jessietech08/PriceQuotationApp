@@ -1,2 +1,32 @@
-﻿<h1>Price Quotation</h1>
+﻿@model PriceQuotationApp.Models.Calculation
 
+<h1>Price Quotation</h1>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label asp-for="Subtotal">Sales Price:</label>
+        <input asp-for="Subtotal" />
+        <span asp-validation-for="Subtotal"></span>
+    </div>
+    <div>
+        <label asp-for="DiscountPercent">Discount Percent:</label>
+        <input asp-for="DiscountPercent" />
+        <span asp-validation-for="DiscountPercent"></span>
+    </div>
+    <div>
+        <label>Discount Amount:</label>
+        <p>@Model?.DiscountAmount.ToString("C")</p>
+    </div>
+    <div>
+        <label>Total:</label>
+        <p>@Model?.Total.ToString("C")</p>
+    </div>
+    <div>
+        <input type="submit" value="Calculate" class="btn btn-primary" />
+        <a asp-action="Clear">Clear</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

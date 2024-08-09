@@ -18,7 +18,7 @@ namespace PriceQuotationApp.Models
         public decimal DiscountAmount { get; set; }
 
         // stores total
-        public decimal Total {  get; set; }
+        public decimal Total { get; set; }
 
         
         public void Calculate()

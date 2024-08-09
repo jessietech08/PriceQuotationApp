@@ -15,12 +15,23 @@ namespace PriceQuotationApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new Calculation());
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Index(Calculation c)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                c.Calculate();
+                return View(c);
+            }
+            return View(c);
+        }
+
+        public IActionResult Clear()
+        {
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
