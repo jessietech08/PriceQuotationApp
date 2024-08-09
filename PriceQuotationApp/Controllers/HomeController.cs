@@ -31,7 +31,8 @@ namespace PriceQuotationApp.Controllers
 
         public IActionResult Clear()
         {
-            return View("Index");
+            // refreshes clearing text boxes 
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

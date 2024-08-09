@@ -15,10 +15,10 @@ namespace PriceQuotationApp.Models
         public decimal DiscountPercent { get; set; }
 
         // stores discount amount
-        public decimal DiscountAmount { get; set; }
+        public decimal DiscountAmount { get; set; } = 0;
 
         // stores total
-        public decimal Total { get; set; }
+        public decimal Total { get; set; } = 0;
 
         
         public void Calculate()
